@@ -27,7 +27,7 @@ style="background-color: dimgrey; padding-left: 20px; padding-right: 20px; paddi
 	border-bottom: 1px solid white;
 	width: 80%;
 	text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 20px #fff;
-	letter-spacing: .1em;">XTOOLS 吾聊AI聊天插件</H3>
+	letter-spacing: .1em;">吾聊AI聊天插件</H3>
 
 	<p></p>
 
