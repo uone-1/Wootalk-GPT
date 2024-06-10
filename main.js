@@ -1,104 +1,3 @@
-
-// ui
-let cdiv = document.createElement("div");
-cdiv.style.position = "fixed"
-cdiv.style.left = "20px"
-cdiv.style['z-index'] = "999999"
-
-cdiv.innerHTML = `
-<div
-style="background-color: dimgrey; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;">
-
-<button id="btn" style="left:10px; top:10px" onclick="
-	if(document.getElementById('menu_div').style.display == 'none')
-	document.getElementById('menu_div').style.display='block';
-	else 
-	document.getElementById('menu_div').style.display='none';
-	">
-	顯示/隱藏
-</button>
-
-<div id="menu_div" style="display: none;">
-
-	<H3 style="
-	color: white;
-	font-size: 16px;
-	font-weight: bold;
-	border-bottom: 1px solid white;
-	width: 80%;
-	text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 20px #fff;
-	letter-spacing: .1em;">吾聊AI聊天插件</H3>
-
-	<p></p>
-
-	<div style="border: white; border-style: solid; padding: 10px;">
-		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">API Key:</a>
-		<input type="password" id="api_key_input">
-		<a href="" style="font-size: 6px; letter-spacing: .1em; color: deepskyblue;">獲取API Key</a>
-
-		<p></p>
-
-		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">GPT Model:</a>
-		<select id="gptModel_input" style="width: 140px; height: 25px;">
-			<option>gpt-3.5-turbo-0301</option>
-			<option>gpt-3.5-turbo</option>
-		</select>
-
-		<p></p>
-
-
-		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">回應單詞數上限</a>
-		<input  value="60" style="width: 90px; height: 15px;"type="number" id="max_tokens_input">
-
-		<p></p>
-
-		<p style="font-size: 15px; color: white;  letter-spacing: .1em;">Temperature (越高越有創意)</p>
-		<input style="width: 190px; background-color: rgb(65, 66, 66); -webkit-appearance: none;  border-radius: 5px;" value="80" max="200" type="range" id="temperature_input">
-
-	</div>
-
-	<p></p>
-
-<!-- 
-	<div style="border: white; border-style: solid; padding: 10px;">
-		<a style="color: greenyellow; font-size: 15px; text-shadow: 0 0 50px greenyellow, 0 0 150px greenyellow, 0 0 20px greenyellow;">禁止標點符號</a>
-		<input style="display: block; width: 20px; height: 20px;" type="checkbox" id="api_key_input">
-	</div>
-
-	<p></p> -->
-
-	<div style="border: white; border-style: solid; padding: 10px;">
-
-	<p style="font-size: 15px; color: white;   letter-spacing: .1em;">角色描述:</p>
-	<textarea  style="width: 100%;" name="" id="gpt_setting_input" cols="30" rows="10">
-	Nana是一名台灣女大學生, 個性高冷且非常沒有禮貌，答覆時禁止使用任何標點符號包括句號, 只有尷尬時你會在句尾加上==, 盡量想辦法說出讓對方開心的話,請禁止主動提問對方有甚麼事情或需要問甚麼事情並且以及其敷衍且盡量簡短的方式答覆(20字內)。
-</textarea>
-
-</div>
-
-	<p></p>
-	<hr>
-
-	<p></p>
-
-	<button id="run_ai_btn" style="left:30px; top:30px;
-	width: 90px; 
-	font-size: 16px;" onclick="RunAI();">
-		運行
-	</button>
-
-	<button id="stop_ai_btn" style="left:30px; top:60px;
-	width: 90px; 
-	font-size: 16px;" onclick="StopAI();">
-		停止
-	</button>
-	<p></p>
-</div>
-</div>
-
-`
-document.body.appendChild(cdiv);
-
 // 參數設定
 window.isRun = false;
 var api_key = "";
@@ -257,3 +156,103 @@ setInterval(function () {
 	}
 
 }, 100);
+
+// ui
+let cdiv = document.createElement("div");
+cdiv.style.position = "fixed"
+cdiv.style.left = "20px"
+cdiv.style['z-index'] = "999999"
+
+cdiv.innerHTML = `
+<div
+style="background-color: dimgrey; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;">
+
+<button id="btn" style="left:10px; top:10px" onclick="
+	if(document.getElementById('menu_div').style.display == 'none')
+	document.getElementById('menu_div').style.display='block';
+	else 
+	document.getElementById('menu_div').style.display='none';
+	">
+	顯示/隱藏
+</button>
+
+<div id="menu_div" style="display: none;">
+
+	<H3 style="
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid white;
+	width: 80%;
+	text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 20px #fff;
+	letter-spacing: .1em;">吾聊AI聊天插件</H3>
+
+	<p></p>
+
+	<div style="border: white; border-style: solid; padding: 10px;">
+		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">API Key:</a>
+		<input type="password" id="api_key_input">
+		<a href="" style="font-size: 6px; letter-spacing: .1em; color: deepskyblue;">獲取API Key</a>
+
+		<p></p>
+
+		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">GPT Model:</a>
+		<select id="gptModel_input" style="width: 140px; height: 25px;">
+			<option>gpt-3.5-turbo-0301</option>
+			<option>gpt-3.5-turbo</option>
+		</select>
+
+		<p></p>
+
+
+		<a style="font-size: 15px; color: white;  letter-spacing: .1em;">回應單詞數上限</a>
+		<input  value="60" style="width: 90px; height: 15px;"type="number" id="max_tokens_input">
+
+		<p></p>
+
+		<p style="font-size: 15px; color: white;  letter-spacing: .1em;">Temperature (越高越有創意)</p>
+		<input style="width: 190px; background-color: rgb(65, 66, 66); -webkit-appearance: none;  border-radius: 5px;" value="80" max="200" type="range" id="temperature_input">
+
+	</div>
+
+	<p></p>
+
+<!-- 
+	<div style="border: white; border-style: solid; padding: 10px;">
+		<a style="color: greenyellow; font-size: 15px; text-shadow: 0 0 50px greenyellow, 0 0 150px greenyellow, 0 0 20px greenyellow;">禁止標點符號</a>
+		<input style="display: block; width: 20px; height: 20px;" type="checkbox" id="api_key_input">
+	</div>
+
+	<p></p> -->
+
+	<div style="border: white; border-style: solid; padding: 10px;">
+
+	<p style="font-size: 15px; color: white;   letter-spacing: .1em;">角色描述:</p>
+	<textarea  style="width: 100%;" name="" id="gpt_setting_input" cols="30" rows="10">
+	Nana是一名台灣女大學生, 個性高冷且非常沒有禮貌，答覆時禁止使用任何標點符號包括句號, 只有尷尬時你會在句尾加上==, 盡量想辦法說出讓對方開心的話,請禁止主動提問對方有甚麼事情或需要問甚麼事情並且以及其敷衍且盡量簡短的方式答覆(20字內)。
+</textarea>
+
+</div>
+
+	<p></p>
+	<hr>
+
+	<p></p>
+
+	<button id="run_ai_btn" style="left:30px; top:30px;
+	width: 90px; 
+	font-size: 16px;" onclick="RunAI();">
+		運行
+	</button>
+
+	<button id="stop_ai_btn" style="left:30px; top:60px;
+	width: 90px; 
+	font-size: 16px;" onclick="StopAI();">
+		停止
+	</button>
+	<p></p>
+</div>
+</div>
+
+`
+document.body.appendChild(cdiv);
